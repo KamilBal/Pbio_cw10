@@ -31,11 +31,7 @@ class GenBankFetcher:
             for record in SeqIO.parse(handle,"genbank"):
                 length=len(record.seq)
                 if min_len<=length<=max_len:
-                    records.append({
-                        "accession":record.id,
-                        "length":length,
-                        "description":record.description
-                    })
+                    records.append({"accession":record.id,"length":length,"description":record.description})
             handle.close()
         return records
 
